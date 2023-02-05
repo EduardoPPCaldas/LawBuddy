@@ -1,8 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Lombok.NET;
 
 namespace LawBuddy.Domain.Users;
 
+[NoArgsConstructor]
 public class User
 {
     public User(Guid id, string name, string email, string password, DateTime birthDate, string? profilePicture)
@@ -41,4 +43,6 @@ public class User
         }
     }
     public string? ProfilePicture { get; set; }
+
+    public List<Contract> Contracts { get; } = new();
 }
